@@ -18,6 +18,7 @@ export type Page = {
   summary: string;
   tags: string[];
   status: Status;
+  featured: boolean;
   body: string;
   words: number;
   file: string;
@@ -63,6 +64,7 @@ function readPageFile(s: Section, file: string): Page | null {
     summary: String(data.summary ?? ""),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     status: (data.status as Status) ?? "draft",
+    featured: data.featured === true,
     body: content,
     words,
     file: path.relative(process.cwd(), full),
@@ -101,6 +103,11 @@ export function prevNext(page: Page): { prev?: Page; next?: Page } {
   const list = loadSection(page.sectionNumber).slice().sort((a, b) => a.seq.localeCompare(b.seq));
   const i = list.findIndex((p) => p.page === page.page);
   return { prev: i > 0 ? list[i - 1] : undefined, next: i >= 0 && i < list.length - 1 ? list[i + 1] : undefined };
+}
+
+/** Pages Ben has marked featured: true. Shown on HOME under the section index. */
+export function loadFeatured(): Page[] {
+  return loadAllPages().filter((p) => p.featured);
 }
 
 export function pageCount(sectionNumber?: number): number {

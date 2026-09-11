@@ -2,14 +2,18 @@ import Link from "next/link";
 import HeaderRow from "@/components/HeaderRow";
 import Masthead from "@/components/Masthead";
 import StatusLine from "@/components/StatusLine";
-import { loadAllPages, lastUpdated } from "@/lib/content";
+import { loadAllPages, loadFeatured, lastUpdated } from "@/lib/content";
 import { site, sectionList, sectionByNumber } from "@/lib/sections";
 import { longDate } from "@/lib/dates";
 
+function titleCase(name: string) {
+  return name.toLowerCase().replace(/(^|\s)\w/g, (c) => c.toUpperCase());
+}
+
 export default function Home() {
   const all = loadAllPages();
-  const [headline, ...rest] = all;
-  const latest = rest.slice(0, 6);
+  const headline = all[0];
+  const featured = loadFeatured().slice(0, 12);
   const count = all.length;
   const headlineSection = headline && sectionByNumber(headline.sectionNumber);
 
@@ -20,7 +24,7 @@ export default function Home() {
 
       {headline ? (
         <section aria-label="Headline" className="chrome flex flex-col">
-          <p className="chrome-mixed text-yellow">{headlineSection?.name.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())}</p>
+          <p className="chrome-mixed text-yellow">{headlineSection ? titleCase(headlineSection.name) : "Latest"}</p>
           <Link href={`/${headline.sectionNumber}/${headline.seq}`} className="flex flex-col gap-1 text-fg lg:flex-row lg:items-end lg:justify-between">
             <span className="hover:underline hover:underline-offset-4 lg:max-w-[34ch]">{headline.title}</span>
             <span className="text-yellow">{headline.page}</span>
@@ -48,11 +52,10 @@ export default function Home() {
         </ul>
       </section>
 
-      {latest.length > 0 && (
-        <section aria-labelledby="latest" className="mt-2">
-          <h2 id="latest" className="chrome chrome-mixed text-cyan">Latest</h2>
-          <ul className="chrome flex flex-col gap-1">
-            {latest.map((p) => (
+      <section aria-labelledby="best" className="mt-4 min-h-[9rem]">
+        {featured.length > 0 ? (
+          <ul className="chrome grid gap-x-8 gap-y-1 lg:grid-cols-2">
+            {featured.map((p) => (
               <li key={p.page}>
                 <Link href={`/${p.sectionNumber}/${p.seq}`} className="flex justify-between gap-4 text-yellow hover:text-fg">
                   <span>{p.title}</span>
@@ -61,8 +64,17 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-      )}
+        ) : (
+          <div className="chrome flex flex-col">
+            <h2 id="best" className="text-cyan">Best pages</h2>
+            <p>Not yet in service.</p>
+            <p>First selection expected {site.expectedTransmission}.</p>
+            <p className="chrome-mixed text-dim">
+              Until then, everything is at <Link href="/190">190 Index</Link>.
+            </p>
+          </div>
+        )}
+      </section>
 
       <StatusLine className="mt-2">
         {count} {count === 1 ? "page" : "pages"} in service. Last updated {longDate(lastUpdated())}.

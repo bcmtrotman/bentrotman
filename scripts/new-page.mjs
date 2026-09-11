@@ -53,6 +53,7 @@ length: ${lengthIn}
 summary: ""
 tags: []
 status: draft
+featured: false
 page: "${section.number}/${next}"
 ---
 
