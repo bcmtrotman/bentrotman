@@ -66,7 +66,7 @@ export default function IndexFilter({ entries, sections }: { entries: IndexEntry
             <li key={e.page} className="flex flex-col gap-1">
               <Link href={`/${e.sectionNumber}/${e.seq}`} className="flex flex-col lg:flex-row lg:items-baseline lg:gap-4">
                 <span className="chrome text-fg lg:w-[9ch] lg:shrink-0">{e.page}</span>
-                <span className="text-fg hover:underline hover:underline-offset-4">{e.title}</span>
+                <span className="chrome text-yellow hover:text-fg">{e.title}</span>
               </Link>
               <p className="chrome-xs text-dim lg:pl-[calc(9ch+1rem)]">
                 {e.length}  {e.date.slice(8, 10)} {["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][Number(e.date.slice(5, 7)) - 1]} {e.date.slice(0, 4)}

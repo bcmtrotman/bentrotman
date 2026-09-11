@@ -190,7 +190,16 @@ Launch with at least one page that picks a side hard, so the strapline reads as 
 
 ---
 
-# PART 2: PROPOSED (Phase B)
+# PART 2: APPROVED (Phase B), with Revision 2 notes
+
+**Revision 2, 11 September 2026, after Ben reviewed the first build.** Overrides anything below that conflicts:
+
+- Chrome font is now **Bedstead** (CC0 recreation of the SAA5050 teletext character generator), vendored as a subset woff2. Body font is **Ubuntu Mono**, chosen as the readable monospace with the closest letterforms. IBM Plex is gone.
+- The front page mirrors the BBC CEEFAX 100 layout: header row with yellow clock; masthead of three white boxes (B E N) plus a blue banner with double-height yellow TROTMAN; yellow category label and white headline with page number; blue rule; section index in two columns as NAME left, number right; a LATEST group in the same style; status line.
+- Every page ends with a blue bar carrying the strapline in yellow, then four Fastext links: red Home, green Index, yellow About, cyan Contact.
+- List titles, page headings and nav are all in the teletext face, upper case. Only body text and summaries use Ubuntu Mono.
+- "Custom teletext font" is removed from the not-to-build list. Thirteen components (Masthead added).
+
 
 ## 2.1 Visual system
 

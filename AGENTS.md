@@ -15,5 +15,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - The words "StoryVentures" and "Retailnomics" never appear on the site.
 - The header clock is frozen at Sun 27 Apr 13:13/00. It is deliberate. Do not make it live.
 - Two breakpoints only: default and `lg` (1024px). The Tailwind theme removes the others on purpose.
-- Twelve components. Ask before adding a thirteenth.
-- Nothing from the "what not to build" list in the spec, even if asked nicely.
+- Thirteen components. Ask before adding a fourteenth.
+- Fonts: Bedstead (public domain teletext recreation) for all chrome, Ubuntu Mono for body text. Ben chose the teletext face deliberately, overriding the spec's original advice; the body text is the readability concession. Do not put Bedstead on body text.
+- The front page follows the BBC CEEFAX 100 layout: header row, three-box masthead plus blue banner, category and headline, blue rule, two-column section index, latest pages, status line. Every page ends with the blue strapline bar and the four Fastext links (Home, Index, About, Contact).
+- Nothing from the "what not to build" list in the spec, even if asked nicely. Revision 2 removed the custom teletext font from that list; everything else stands.

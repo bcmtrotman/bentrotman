@@ -14,8 +14,9 @@
   --color-blue: #0000ff;
   --color-code: #111111;
 
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --font-sans: var(--font-plex-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Chrome is Bedstead (teletext). Body is Ubuntu Mono. */
+  --font-mono: var(--font-bedstead), "Bedstead", ui-monospace, monospace;
+  --font-sans: var(--font-ubuntu-mono), "Ubuntu Mono", ui-monospace, monospace;
 
   /* Two layouts only. */
   --breakpoint-*: initial;
@@ -33,11 +34,11 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.6;
 }
 @media (min-width: 64rem) {
-  body { font-size: 18px; }
+  body { font-size: 19px; }
 }
 
 ::selection { background: var(--color-yellow); color: var(--color-bg); }
@@ -51,45 +52,46 @@ a, button { transition: color 100ms linear, background-color 100ms linear; }
   outline-offset: 2px;
 }
 
-/* Chrome: header row, nav, list rows, status lines. Upper case is a Ceefax choice. */
+/* Chrome: header row, nav, index rows, status lines, headlines. Bedstead, no tracking, upper case. */
 .chrome {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: 14px;
+  letter-spacing: 0;
+  font-size: 16px;
   line-height: 1.5;
 }
-.chrome-xs { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.02em; font-size: 12px; line-height: 1.4; }
-.chrome-block { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.02em; font-size: 16px; line-height: 1.3; font-weight: 600; }
+.chrome-xs { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0; font-size: 14px; line-height: 1.4; }
+.chrome-block { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0; font-size: 20px; line-height: 1.25; }
+.chrome-mixed { text-transform: none; }
 @media (min-width: 64rem) {
-  .chrome { font-size: 15px; }
-  .chrome-xs { font-size: 13px; }
-  .chrome-block { font-size: 18px; }
+  .chrome { font-size: 18px; }
+  .chrome-xs { font-size: 15px; }
+  .chrome-block { font-size: 24px; }
 }
 
-/* Body typography for pages. Plex Sans, sentence case, left aligned, never coloured. */
-.prose { max-width: 66ch; }
+/* Body typography for pages. Ubuntu Mono, sentence case, left aligned, never coloured. */
+.prose { max-width: 62ch; }
 .prose > * + * { margin-top: 1.1em; }
-.prose h2 { font-weight: 600; font-size: 20px; line-height: 1.3; margin-top: 2em; }
-.prose h3 { font-weight: 600; font-size: 18px; line-height: 1.3; margin-top: 1.6em; }
+.prose h2 { font-family: var(--font-mono); text-transform: uppercase; font-size: 20px; line-height: 1.3; margin-top: 2em; color: var(--color-yellow); }
+.prose h3 { font-family: var(--font-mono); text-transform: uppercase; font-size: 18px; line-height: 1.3; margin-top: 1.6em; color: var(--color-cyan); }
 @media (min-width: 64rem) {
   .prose h2 { font-size: 22px; }
   .prose h3 { font-size: 19px; }
 }
-.prose strong { font-weight: 600; }
+.prose strong { font-weight: 700; }
 .prose em { font-style: italic; }
 .prose ul, .prose ol { padding-left: 1.4em; }
 .prose li + li { margin-top: 0.35em; }
 .prose blockquote { border-left: 2px solid var(--color-cyan); padding-left: 1em; font-style: italic; }
 .prose hr { border: 0; border-top: 1px solid var(--color-rule); margin: 2em 0; }
-.prose code { font-family: var(--font-mono); font-size: 0.85em; background: var(--color-code); padding: 0.1em 0.35em; }
-.prose pre { font-family: var(--font-mono); font-size: 15px; line-height: 1.5; background: var(--color-code); padding: 1em; overflow-x: auto; }
+.prose code { font-size: 0.95em; background: var(--color-code); padding: 0.1em 0.35em; }
+.prose pre { font-size: 16px; line-height: 1.5; background: var(--color-code); padding: 1em; overflow-x: auto; }
 .prose pre code { background: none; padding: 0; font-size: inherit; }
 .prose img { display: block; width: 100%; height: auto; }
-.prose figcaption { font-family: var(--font-mono); text-transform: uppercase; font-size: 12px; color: var(--color-dim); margin-top: 0.5em; }
+.prose figcaption { font-family: var(--font-mono); text-transform: uppercase; font-size: 14px; color: var(--color-dim); margin-top: 0.5em; }
 .prose table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
 .prose th, .prose td { text-align: left; padding: 0.4em 0.6em; border-bottom: 1px solid var(--color-rule); vertical-align: top; }
-.prose th { font-family: var(--font-mono); text-transform: uppercase; font-size: 12px; letter-spacing: 0.02em; }
+.prose th { font-family: var(--font-mono); text-transform: uppercase; font-size: 14px; color: var(--color-yellow); }
 
 /* Dot leaders for list rows on desktop only. */
 .leader { display: none; }

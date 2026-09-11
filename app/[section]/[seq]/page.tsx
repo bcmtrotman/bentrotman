@@ -44,7 +44,7 @@ export default async function PagePage({ params }: { params: Promise<{ section: 
 
       <article className="flex flex-col gap-6">
         <header className="flex flex-col gap-2">
-          <h1 className="max-w-[26ch] text-[24px] font-semibold leading-[1.2] lg:text-[28px]">{page.title}</h1>
+          <h1 className="chrome-block max-w-[34ch]">{page.title}</h1>
           <p className="chrome text-dim">
             {page.page}  {page.length}  {longDate(page.date)}
             {page.updated && `  Updated ${longDate(page.updated)}`}

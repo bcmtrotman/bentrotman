@@ -8,13 +8,13 @@ export default function PagerNav({ prev, next, section }: { prev?: Page; next?: 
       {prev && (
         <Link href={`/${prev.sectionNumber}/${prev.seq}`}>
           Prev {prev.page}
-          <span className="normal-case font-sans text-fg ml-3">{prev.title}</span>
+          <span className="text-yellow ml-3">{prev.title}</span>
         </Link>
       )}
       {next && (
         <Link href={`/${next.sectionNumber}/${next.seq}`}>
           Next {next.page}
-          <span className="normal-case font-sans text-fg ml-3">{next.title}</span>
+          <span className="text-yellow ml-3">{next.title}</span>
         </Link>
       )}
       <Link href={`/${section.number}`}>

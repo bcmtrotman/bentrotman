@@ -30,7 +30,7 @@ export default function ContactForm({ commercialEmail }: { commercialEmail: stri
     return <p className="chrome text-green">Message received 13:13. No further action required.</p>;
   }
 
-  const field = "w-full bg-bg text-fg border border-fg px-3 py-2 font-sans text-[17px] lg:text-[18px]";
+  const field = "w-full bg-bg text-fg border border-fg px-3 py-2 font-sans";
 
   return (
     <form onSubmit={onSubmit} className="flex max-w-[66ch] flex-col gap-4" noValidate={false}>

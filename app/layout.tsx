@@ -5,22 +5,21 @@ import { site } from "@/lib/sections";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const plexMono = localFont({
-  src: [
-    { path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/ibm-plex-mono-latin-600-normal.woff2", weight: "600", style: "normal" },
-  ],
-  variable: "--font-plex-mono",
+// Chrome: Bedstead, a public-domain recreation of the SAA5050 teletext character generator.
+const bedstead = localFont({
+  src: "./fonts/bedstead.woff2",
+  variable: "--font-bedstead",
   display: "swap",
 });
 
-const plexSans = localFont({
+// Body: Ubuntu Mono. Same rounded monospace feel, built to be read at length.
+const ubuntuMono = localFont({
   src: [
-    { path: "./fonts/ibm-plex-sans-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/ibm-plex-sans-latin-400-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/ibm-plex-sans-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/ubuntu-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ubuntu-mono-latin-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/ubuntu-mono-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
-  variable: "--font-plex-sans",
+  variable: "--font-ubuntu-mono",
   display: "swap",
 });
 
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${plexMono.variable} ${plexSans.variable}`}>
+    <html lang="en-GB" className={`${bedstead.variable} ${ubuntuMono.variable}`}>
       <body className="min-h-screen bg-bg text-fg">
         <div className="mx-auto w-full max-w-[960px] px-4 py-4 lg:px-8 lg:py-6">
           {children}

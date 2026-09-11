@@ -4,7 +4,16 @@
   "strapline": "A little bit right, a little bit wrong, all of the time.",
   "url": "https://bentrotman.com",
   "expectedTransmission": "OCT 2026",
-  "frozenClock": { "day": "Sun", "date": "27 Apr", "time": "13:13", "seconds": "00" },
+  "frozenClock": {
+    "day": "Sun",
+    "date": "27 Apr",
+    "time": "13:13",
+    "seconds": "00"
+  },
   "commercialEmail": "ben@emersongrowth.com",
-  "footerLine": "Inspired by Ceefax, 1974 to 2012. Not the BBC."
+  "footerLine": "Inspired by Ceefax, 1974 to 2012. Not the BBC.",
+  "mastheadSplit": [
+    "BEN",
+    "TROTMAN"
+  ]
 }

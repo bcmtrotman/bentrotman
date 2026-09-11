@@ -1,92 +1,72 @@
 import Link from "next/link";
 import HeaderRow from "@/components/HeaderRow";
-import Block from "@/components/Block";
-import PageList from "@/components/PageList";
+import Masthead from "@/components/Masthead";
 import StatusLine from "@/components/StatusLine";
-import { loadAllPages, loadSection, lastUpdated } from "@/lib/content";
-import { site, sectionList, sections } from "@/lib/sections";
-import { longDate, shortDate } from "@/lib/dates";
+import { loadAllPages, lastUpdated } from "@/lib/content";
+import { site, sectionList, sectionByNumber } from "@/lib/sections";
+import { longDate } from "@/lib/dates";
 
 export default function Home() {
   const all = loadAllPages();
   const [headline, ...rest] = all;
   const latest = rest.slice(0, 6);
   const count = all.length;
+  const headlineSection = headline && sectionByNumber(headline.sectionNumber);
 
   return (
-    <main className="flex flex-col gap-6">
+    <main className="flex flex-col gap-5">
       <HeaderRow number={100} />
-
-      <div className="flex flex-col gap-2">
-        <Block colour="cyan" as="h1">{site.masthead}</Block>
-        <p className="max-w-[66ch]">{site.strapline}</p>
-      </div>
-
-      <hr className="border-rule" />
+      <Masthead />
 
       {headline ? (
-        <section aria-label="Headline" className="flex flex-col gap-2">
-          <Link href={`/${headline.sectionNumber}/${headline.seq}`} className="group flex flex-col gap-2 text-fg lg:flex-row lg:items-baseline lg:justify-between">
-            <h2 className="text-[26px] font-semibold leading-[1.15] group-hover:underline group-hover:underline-offset-4 lg:text-[34px] lg:max-w-[24ch]">
-              {headline.title}
-            </h2>
-            <span className="chrome shrink-0">{headline.page}</span>
+        <section aria-label="Headline" className="chrome flex flex-col">
+          <p className="chrome-mixed text-yellow">{headlineSection?.name.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())}</p>
+          <Link href={`/${headline.sectionNumber}/${headline.seq}`} className="flex flex-col gap-1 text-fg lg:flex-row lg:items-end lg:justify-between">
+            <span className="hover:underline hover:underline-offset-4 lg:max-w-[34ch]">{headline.title}</span>
+            <span className="text-yellow">{headline.page}</span>
           </Link>
-          {headline.summary && <p className="max-w-[66ch] text-dim">{headline.summary}</p>}
-          <p className="chrome text-dim">
-            {headline.length}  {shortDate(headline.date)}
-          </p>
         </section>
       ) : (
-        <section className="chrome flex flex-col gap-1">
-          <p>No pages in service.</p>
-          <p>First transmission expected {site.expectedTransmission}.</p>
-          <p className="text-dim">
-            <Link href="/110">110 ABOUT</Link> and <Link href="/180">180 NOW</Link> are live.
-          </p>
+        <section aria-label="Headline" className="chrome flex flex-col">
+          <p className="chrome-mixed text-yellow">Service</p>
+          <p>No pages in service. First transmission expected {site.expectedTransmission}.</p>
         </section>
       )}
 
-      <hr className="border-rule" />
+      <hr className="border-blue border-t-2" />
 
-      <div className="grid gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
-        <section aria-labelledby="latest">
-          <h2 id="latest" className="chrome mb-3">Latest</h2>
-          {latest.length ? (
-            <PageList pages={latest} />
-          ) : (
-            <p className="chrome text-dim">{headline ? "One page so far." : "Nothing yet."}</p>
-          )}
-        </section>
+      <section aria-label="Sections">
+        <ul className="chrome grid gap-x-8 gap-y-1 lg:grid-cols-2">
+          {sectionList.map((s) => (
+            <li key={s.number}>
+              <Link href={s.href} className="flex justify-between gap-4 text-yellow hover:text-fg">
+                <span>{s.name}</span>
+                <span className="text-fg">{s.number}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-        <section aria-labelledby="sections">
-          <h2 id="sections" className="chrome mb-3">Sections</h2>
-          <ul className="chrome flex flex-col gap-2">
-            {sectionList.map((s) => {
-              const editorial = sections.find((x) => x.number === s.number);
-              const n = editorial ? loadSection(s.number).length : 0;
-              return (
-                <li key={s.number} className="flex items-baseline gap-4">
-                  <Link href={s.href}>
-                    <span className="text-fg mr-4">{s.number}</span>
-                    {s.name}
-                  </Link>
-                  {n > 0 && <span className="text-dim">{n}</span>}
-                </li>
-              );
-            })}
+      {latest.length > 0 && (
+        <section aria-labelledby="latest" className="mt-2">
+          <h2 id="latest" className="chrome chrome-mixed text-cyan">Latest</h2>
+          <ul className="chrome flex flex-col gap-1">
+            {latest.map((p) => (
+              <li key={p.page}>
+                <Link href={`/${p.sectionNumber}/${p.seq}`} className="flex justify-between gap-4 text-yellow hover:text-fg">
+                  <span>{p.title}</span>
+                  <span className="shrink-0 text-fg">{p.page}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
-      </div>
+      )}
 
-      <hr className="border-rule" />
-
-      <div className="flex flex-col gap-2">
-        <Block colour="yellow">
-          {count} {count === 1 ? "page" : "pages"} in service
-        </Block>
-        <StatusLine>Last updated {longDate(lastUpdated())}</StatusLine>
-      </div>
+      <StatusLine className="mt-2">
+        {count} {count === 1 ? "page" : "pages"} in service. Last updated {longDate(lastUpdated())}.
+      </StatusLine>
     </main>
   );
 }
