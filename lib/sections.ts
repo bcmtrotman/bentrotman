@@ -15,7 +15,7 @@ export const site = siteJson;
 
 // The header clock is frozen on purpose. 13:13 on Sunday 27 April 2014.
 // It is not a bug. Do not "fix" it. The LAST UPDATED status line carries recency.
-export const frozenClock = `${site.frozenClock.day} ${site.frozenClock.date}  ${site.frozenClock.time}/${site.frozenClock.seconds}`;
+
 export const frozenClockShort = `${site.frozenClock.day} ${site.frozenClock.date} ${site.frozenClock.time}`;
 
 export const sections: Section[] = Object.entries(sectionsJson)

@@ -20,6 +20,6 @@ Alongside that I build things. AI agents, local models, a fizzy drink with my el
 
 **Why it looks like this.** Ceefax was the BBC's teletext service, 1974 to 2012: numbered pages, black screen, block colour, a clock in the corner, and a tone that told you the news without asking how you felt about it. I grew up with it. Everything here has a page number. You never have to type one. The service is not affiliated with the BBC, who would probably rather I didn't do this. If you're from the BBC and it annoys you, let me know.
 
-Arsenal. Lots of music, most genres, no loyalty. LinkedIn is [here](https://www.linkedin.com/) if you need it.
+Arsenal. Lots of music, most genres, no loyalty. LinkedIn is [https://www.linkedin.com/in/ben-trotman/](https://www.linkedin.com/) if you need it.
 
 *Go and find out.*

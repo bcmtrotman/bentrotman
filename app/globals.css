@@ -25,7 +25,7 @@
   --radius-*: initial;
   --shadow-*: initial;
 }
-
+@layer base {
 html {
   background: var(--color-bg);
   color: var(--color-fg);
@@ -51,7 +51,7 @@ a, button { transition: color 100ms linear, background-color 100ms linear; }
   outline: 2px solid var(--color-yellow);
   outline-offset: 2px;
 }
-
+}
 /* Chrome: header row, nav, index rows, status lines, headlines. Bedstead, no tracking, upper case. */
 .chrome {
   font-family: var(--font-mono);

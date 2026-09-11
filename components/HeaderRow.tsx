@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { site, frozenClock, frozenClockShort } from "@/lib/sections";
+import { site } from "@/lib/sections";
 
-/** The Ceefax header row: P100  BENTROTMAN 100 Sun 27 Apr 13:13/00. Clock in yellow, frozen. */
+/** The Ceefax header row: P100  BENTROTMAN 100  Sun 27 Apr 13:13/00. Date in white, time in yellow, frozen. */
 export default function HeaderRow({ number }: { number: number | string }) {
   const n = String(number);
+  const clock = site.frozenClock;
   return (
     <div className="chrome flex items-baseline justify-between gap-4 whitespace-nowrap">
       <div className="flex gap-4 lg:gap-8">
@@ -15,9 +16,12 @@ export default function HeaderRow({ number }: { number: number | string }) {
           {n}
         </span>
       </div>
-      <span className="text-yellow">
-        <span className="lg:hidden">{frozenClockShort}</span>
-        <span className="hidden lg:inline">{frozenClock}</span>
+      <span>
+        {clock.day} {clock.date}{" "}
+        <span className="text-yellow">
+          {clock.time}
+          <span className="hidden lg:inline">/{clock.seconds}</span>
+        </span>
       </span>
     </div>
   );
