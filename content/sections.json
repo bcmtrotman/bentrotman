@@ -1,0 +1,8 @@
+{
+  "uk-aus":    { "number": 120, "name": "UK / AUSTRALIA",    "block": "cyan",   "tagline": "Two countries, one confused resident. Contrasts, not conclusions." },
+  "retail":    { "number": 130, "name": "RETAIL & CONSUMER", "block": "yellow", "tagline": "Twenty years in supermarkets. Margins, mechanisms, and why the obvious answer is usually somebody's marketing." },
+  "parenting": { "number": 140, "name": "PARENTING",         "block": "green",  "tagline": "Three boys. What I'm noticing, not what you should do." },
+  "building":  { "number": 150, "name": "BUILDING",          "block": "red",    "tagline": "Businesses, products, experiments. Including the ones that don't work." },
+  "tech":      { "number": 160, "name": "TECHNOLOGY & AI",   "block": "blue",   "tagline": "Agents, local models, tools. What worked, what broke, what I'd skip." },
+  "other":     { "number": 170, "name": "EVERYTHING ELSE",   "block": "cyan",   "tagline": "Football, music, books, cars, people. No sub-structure. Deliberately." }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "bentrotman",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "new": "node scripts/new-page.mjs",
+    "check": "node scripts/check.mjs",
+    "ship": "node scripts/check.mjs && git add -A && git commit -m \"$(node scripts/last-page.mjs)\" && git push",
+    "prebuild": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "gray-matter": "^4.0.3",
+    "next": "16.3.4",
+    "next-mdx-remote": "^6.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remark-gfm": "^4.0.1",
+    "resend": "^6.27.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
