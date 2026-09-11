@@ -2,8 +2,8 @@ import Link from "next/link";
 import { site } from "@/lib/sections";
 
 /**
- * The front-page masthead, after the BBC CEEFAX one: three white boxes, then a blue banner
- * with yellow lettering stretched to fill it, the way teletext double-width mosaic text did.
+ * The front-page masthead, after the BBC CEEFAX one: three white boxes taking a third of the
+ * width, then a blue banner taking two thirds, with yellow lettering stretched to fill it.
  * Home page only.
  */
 export default function Masthead() {
@@ -14,17 +14,17 @@ export default function Masthead() {
       aria-label={site.masthead}
       className="chrome-block flex items-stretch gap-1 hover:no-underline"
     >
-      <span className="flex gap-1" aria-hidden="true">
+      <span className="flex w-1/3 gap-1" aria-hidden="true">
         {boxes.split("").map((ch, i) => (
           <span
             key={i}
-            className="flex w-[1.5em] items-center justify-center bg-fg text-bg text-[2em] leading-none"
+            className="flex flex-1 items-center justify-center bg-fg text-bg text-[2.8em] leading-none"
           >
             {ch}
           </span>
         ))}
       </span>
-      <span className="flex flex-1 items-center bg-blue px-3 py-1 lg:px-5" aria-hidden="true">
+      <span className="flex w-2/3 items-center bg-blue px-3 py-1 lg:px-5" aria-hidden="true">
         {/* preserveAspectRatio="none" lets the word stretch to the banner width on any screen. */}
         <svg className="h-[2.2em] w-full" viewBox="0 0 700 100" preserveAspectRatio="none">
           <text
