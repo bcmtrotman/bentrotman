@@ -199,7 +199,7 @@ Launch with at least one page that picks a side hard, so the strapline reads as 
 - Every page ends with a blue bar carrying the strapline in yellow, then four Fastext links: red Home, green Index, yellow About, cyan Contact.
 - List titles, page headings and nav are all in the teletext face, upper case. Only body text and summaries use Ubuntu Mono.
 - "Custom teletext font" is removed from the not-to-build list. Thirteen components (Masthead added).
-- **Revision 3.** The front-page section index lists exactly the six editorial sections plus 180 NOW, two columns, NAME left and number right. Below it, in the space the Ceefax front page used for its second link block, sits BEST PAGES: pages with `featured: true` in front matter, or a Ceefax-style "not yet in service" state when there are none. LATEST is gone from HOME; the headline is the newest page and INDEX has the rest. About, Index and Contact appear only on the Fastext row.
+- **Revision 3.** The front-page section index lists exactly the six editorial sections (NOW dropped from it in revision 4, so the grid is two columns of three; 180 NOW is linked from the nav row on inner pages and from empty states), two columns, NAME left and number right. Below it, in the space the Ceefax front page used for its second link block, sits BEST PAGES: pages with `featured: true` in front matter, or a Ceefax-style "not yet in service" state when there are none. LATEST is gone from HOME; the headline is the newest page and INDEX has the rest. About, Index and Contact appear only on the Fastext row.
 
 
 ## 2.1 Visual system

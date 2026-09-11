@@ -15,7 +15,7 @@ That's it.
 
 - `npm run dev` to see the site locally, drafts included.
 - `npm run check` to validate content without shipping. It also runs before every build.
-- To put a page in the BEST PAGES block on the front page, set `featured: true` in its front matter. Up to 12 show.
+- **Best pages block on the front page.** Open any page file, change `featured: false` to `featured: true`, save, ship. Up to 12 show, newest first, in two columns. To remove one, set it back to `false`. Nothing else to touch.
 - ABOUT, NOW and CONTACT copy live in `content/pages/`. Same workflow, no page number.
 - New section: add one line to `content/sections.json` and create the folder `content/<number>-<slug>/`.
 - Launch date and frozen clock: `content/site.json`.

@@ -40,8 +40,5 @@ export const utilityPages = [
   { number: 199, name: "CONTACT", href: "/199", block: "red" as BlockColour },
 ];
 
-/** The SECTIONS block on HOME: the six editorial sections plus NOW. About, Index and Contact are Fastext only. */
-export const sectionList = [
-  ...sections.map((s) => ({ number: s.number, name: s.name, href: `/${s.number}`, block: s.block })),
-  utilityPages[2],
-];
+/** The SECTIONS block on HOME: the six editorial sections, two columns of three. Now, About, Index and Contact are elsewhere. */
+export const sectionList = sections.map((s) => ({ number: s.number, name: s.name, href: `/${s.number}`, block: s.block }));

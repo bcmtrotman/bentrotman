@@ -9,6 +9,7 @@ export default function Nav({
   return (
     <nav aria-label="Site" className="chrome flex flex-wrap gap-x-6 gap-y-1">
       <Link href="/">100 HOME</Link>
+      <Link href="/180">180 NOW</Link>
       <Link href="/190">190 INDEX</Link>
       <Link href="/199">199 CONTACT</Link>
       {current && (
