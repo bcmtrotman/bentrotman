@@ -4,6 +4,7 @@ import { site } from "@/lib/sections";
 /**
  * The front-page masthead, after the BBC CEEFAX one: three white boxes taking a third of the
  * width, then a blue banner taking two thirds, with yellow lettering stretched to fill it.
+ * The BEN letters get a text-stroke to fake a bold weight, since Bedstead only ships one weight.
  * Home page only.
  */
 export default function Masthead() {
@@ -19,6 +20,7 @@ export default function Masthead() {
           <span
             key={i}
             className="flex flex-1 items-center justify-center bg-fg text-bg text-[2.8em] leading-none"
+            style={{ WebkitTextStroke: "0.05em var(--color-bg)" }}
           >
             {ch}
           </span>
